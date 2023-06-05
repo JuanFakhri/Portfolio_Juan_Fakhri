@@ -13,4 +13,3 @@
 
 ![image](https://user-images.githubusercontent.com/61308533/237031821-bc21e1f6-dde1-4aa9-843a-14b752fe568c.png)
 
-![preview img](/preview.png)
