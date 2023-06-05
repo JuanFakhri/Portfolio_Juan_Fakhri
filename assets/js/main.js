@@ -51,76 +51,7 @@ let swiper = new Swiper(".projects__container", {
     mousewheel: true
 });
 
-/*=============== EMAIL JS ===============*/
-const contactForm = document.getElementById('contact-form"')
-const contactName = document.getElementById('contact-name"')
-const contactEmail = document.getElementById('contact-gmail"')
-const contactPesan = document.getElementById('contact-pesan"')
-const contactMessage = document.getElementById('contact-message')
 
-const sendEmail = (e) => {
-    e.preventDefault()
-
-    // Check of the field has a value
-    if (contactName.value === '' || contactEmail.value === '' || contactPesan === '') {
-
-        // Add and remove color
-        contactMessage.classList.remove('color-blue')
-        contactMessage.classList.add('color-red')
-
-        // Showw Message
-        contactMessage.textContent = 'Tulis semua kolom 📥'
-
-    } else {
-        // serviceID - templateID - #form - publickey
-        emailjs.sendForm('service_rnn79vj', 'template_e7d730t', '#contact-form', 'XLVMqZbTDlQIQEnRB')
-            .then(() => {
-                // Show message and color
-                contactMessage.classList.add('color-blue')
-                contactMessage.textContent = 'Pesan terkirim 👍'
-
-                // Remove message after five seconds
-                setTimeout(() => {
-
-                    contactMessage.textContent = ''
-                }, 5000)
-
-            })
-    }
-}
-
-contactForm.addEventListener('submit', sendEmail)
-
-/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-const sections = document.querySelectorAll('section[id]')
-
-const scrollActive = () => {
-    const scrollY = window.pageYOffset
-
-    sections.forEach(current => {
-        const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 58
-        const sectionId = current.getAttribute('id')
-        const sectionsClass = document.querySelector('.nav__menu a [href *=' + sectionId + ']')
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            sectionsClass.classList.add('active-link')
-        } else {
-            sectionsClass.classList.remove('active-link')
-        }
-    })
-}
-
-window.addEventListener('scroll', scrollActive)
-
-/*=============== SHOW SCROLL UP ===============*/
-const scrollUp = () => {
-    const scrollUp = document.getElementById('scroll-up')
-
-    this.screenY >= 340 ? scrollUp.classList.add('show-scroll') : scrollUp.classList.remove('show-scroll')
-}
-
-window.addEventListener('scroll', scrollUp)
 /*=============== DARK LIGHT THEME ===============*/
 
 
